@@ -9,7 +9,7 @@ declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_B
 # run cron
 cron
 
+/root/1_httpd.sh
+
 # expose a simple http server to keep docker alive and make it monitorable
-mkdir /www
-cd /www
-python3 -m http.server 8080
+monit -I
