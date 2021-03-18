@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 
 # install unix dependencies
-RUN apt-get update && apt-get install wget unzip cron -y
+RUN apt-get update && apt-get install wget unzip cron netcat -y
 
 # install aws cli dependency
 RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
