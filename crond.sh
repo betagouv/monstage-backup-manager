@@ -10,6 +10,7 @@ declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_B
 cron
 
 # expose a simple http server to keep docker alive and make it monitorable
-echo 'OK' > /tmp/index.html
-while true ; do nc -vv -l 0.0.0.0 8080 < /tmp/index.html ; done
+mkdir /www
+echo 'OK' > /www/index.html
+while true ; do    printf 'HTTP/1.1 200 OK\n\n%s' "$(cat /www/index.html)" | netcat -l 8080; done
 
