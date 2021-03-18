@@ -11,5 +11,6 @@ set httpd
     port 8080
     allow 127.0.0.1
     allow 0.0.0.0
+    allow "::1"
     allow ${MONIT_USERNAME}:${MONIT_PASSWORD}
 EOF
