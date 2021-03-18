@@ -13,3 +13,5 @@
 1. find ur instance `$ docker container list`
 2. connect to the instancce `$docker exec -ti $CONTAINER_ID bash`
 
+# deploy
+`git push clever main:master`
