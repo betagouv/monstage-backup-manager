@@ -11,6 +11,5 @@ cron
 
 # expose a simple http server to keep docker alive and make it monitorable
 mkdir /www
-echo 'OK' > /www/index.html
-while true ; do    printf 'HTTP/1.1 200 OK\n\n%s' "$(cat /www/index.html)" | netcat -l 8080; done
-
+cd /www
+python3 -m http.server 8080
