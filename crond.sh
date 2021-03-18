@@ -11,5 +11,5 @@ cron
 
 # expose a simple http server to keep docker alive and make it monitorable
 echo 'OK' > /tmp/index.html
-while true ; do nc -l 8080 < /tmp/index.html ; done
+while true ; do nc -vv -l 0.0.0.0 8080 < /tmp/index.html ; done
 
