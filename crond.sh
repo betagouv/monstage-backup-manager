@@ -6,5 +6,9 @@
 
 declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_BUCKET|AWS_S3_ACCESS_KEY_ID|AWS_S3_SECRET_ACCESS_KEY|AWS_S3_BUCKET|SYNC_DIR' > /container.env
 
-# run cron in foreground to keep docker container alive
-cron -f
+# run cron
+cron
+
+# expose a simple http server to keep docker alive and make it monitorable
+python3 -m http.server 8080
+
