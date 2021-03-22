@@ -11,18 +11,21 @@ RUN ./aws/install
 RUN rm awscliv2.zip
 
 # add our crontask
-COPY ./crontask /etc/cron.d/crontask
+RUN mkdir /cron
+COPY ./cron/backup.sh /cron/backup.sh
+COPY ./cron/crontask /etc/cron.d/crontask
 RUN chmod 0644 /etc/cron.d/crontask
 RUN crontab /etc/cron.d/crontask
 
-# add our backup script ran by the crontask
-COPY ./backup.sh /root/backup.sh
 
 # use custom "start.sh which prepare a container.env file for our crontask"
 COPY ./start.sh /root/start.sh
 
 
-COPY ./monit/1_httpd.sh /root/1_httpd.sh
+RUN mkdir /monit
+COPY ./monit/1_httpd.sh /monit/1_httpd.sh
+COPY ./monit/2_alert.sh /monit/2_alert.sh
+COPY ./monit/3_cron.sh /monit/3_cron.sh
 
 # run this `start.sh` (running cron in foreground)
 CMD /root/start.sh
