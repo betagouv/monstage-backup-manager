@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:latest
 
 # install unix dependencies
 RUN apt-get update && apt-get install wget unzip cron monit -y
@@ -23,9 +23,11 @@ COPY ./start.sh /root/start.sh
 
 
 RUN mkdir /monit
-COPY ./monit/1_httpd.sh /monit/1_httpd.sh
-COPY ./monit/2_alert.sh /monit/2_alert.sh
-COPY ./monit/3_cron.sh /monit/3_cron.sh
+COPY ./monit/httpd.sh /monit/httpd.sh
+COPY ./monit/alert.sh /monit/alert.sh
+COPY ./monit/cron.cfg /etc/monit/conf.d/cron.cfg
+COPY ./monit/daemon.cfg /etc/monit/conf.d/daemon.cfg
+COPY ./monit/remote.cfg /etc/monit/conf.d/remote.cfg
 
 # run this `start.sh` (running cron in foreground)
 CMD /root/start.sh
