@@ -1,7 +1,6 @@
 #!/bin/bash
 # info: pull backups from clevercloud cellar, push them to aws s3
 echo "start backup script"
-mkdir -p $SYNC_DIR
 
 # setup aws cli to pull backup from ms3e cellar datastore
 echo "configure aws cli to pull backups from clevercloud cellar"

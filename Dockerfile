@@ -21,10 +21,10 @@ RUN crontab /etc/cron.d/crontask
 # use custom "start.sh which prepare a container.env file for our crontask"
 COPY ./start.sh /root/start.sh
 
-
 RUN mkdir /monit
 COPY ./monit/httpd.sh /monit/httpd.sh
 COPY ./monit/alert.sh /monit/alert.sh
+COPY ./monit/disk-usage.sh /monit/disk-usage.sh
 COPY ./monit/cron.cfg /etc/monit/conf.d/cron.cfg
 COPY ./monit/daemon.cfg /etc/monit/conf.d/daemon.cfg
 COPY ./monit/check-hosts.cfg /etc/monit/conf.d/check-hosts.cfg

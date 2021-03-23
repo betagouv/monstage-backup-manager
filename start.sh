@@ -7,10 +7,13 @@
 
 declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_BUCKET|AWS_S3_ACCESS_KEY_ID|AWS_S3_SECRET_ACCESS_KEY|AWS_S3_BUCKET|SYNC_DIR' > /cron/container.env
 
+echo "SYNC_DIR: $SYNC_DIR"
+mkdir $SYNC_DIR
 service cron start
 
 # source monit env
 /monit/httpd.sh
 /monit/alert.sh
+/monit/disk-usage.sh
 
 monit -I
