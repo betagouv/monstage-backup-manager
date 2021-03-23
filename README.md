@@ -1,17 +1,29 @@
-# build the image
+# description
 
-`$ infra/disaster/docker/backup_manager/_docker-build.sh`
+* ensure replication of backup via cron
+* monit this cron
+* monit hosts (staging/prod)
+* monit image. TODO: disk usage
+* TODO: logrotate backups
 
-# run the image:
+# usage
 
-1. `$ cp infra/disaster/docker/backup_manager/_docker-run.sh infra/disaster/docker/backup_manager/_docker-run-with-env.sh`
+## build
+
+`$ infra/_docker-build.sh`
+
+## run :
+
+1. `$ cp infra/_docker-run.sh infra/_docker-run-with-env.sh`
 2. replace the env vars
-3. start: `$ infra/disaster/docker/backup_manager/_docker-run-with-env.sh`
+3. start: `$ infra/_docker-run-with-env.sh`
 
-# connect to the image
+## connect
 
-1. find ur instance `$ docker container list`
-2. connect to the instancce `$docker exec -ti $CONTAINER_ID bash`
+1. ssh: `$ infra/_docker-connect.sh`
+2. ip from host to container: `$ open 0.0.0.0:8080`
 
-# deploy
-`git push clever main:master`
+## deploy
+
+1. `$ infra/deploy.sh`
+
