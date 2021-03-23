@@ -7,9 +7,10 @@
 
 declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_BUCKET|AWS_S3_ACCESS_KEY_ID|AWS_S3_SECRET_ACCESS_KEY|AWS_S3_BUCKET|SYNC_DIR' > /cron/container.env
 
+service cron start
+
 # source monit env
 /monit/httpd.sh
 /monit/alert.sh
 
-# run cron via monit
 monit -I

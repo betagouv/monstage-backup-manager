@@ -27,7 +27,7 @@ COPY ./monit/httpd.sh /monit/httpd.sh
 COPY ./monit/alert.sh /monit/alert.sh
 COPY ./monit/cron.cfg /etc/monit/conf.d/cron.cfg
 COPY ./monit/daemon.cfg /etc/monit/conf.d/daemon.cfg
-COPY ./monit/remote.cfg /etc/monit/conf.d/remote.cfg
+COPY ./monit/check-hosts.cfg /etc/monit/conf.d/check-hosts.cfg
 
 # run this `start.sh` (running cron in foreground)
 CMD /root/start.sh
