@@ -17,17 +17,13 @@ COPY ./cron/crontask /etc/cron.d/crontask
 RUN chmod 0644 /etc/cron.d/crontask
 RUN crontab /etc/cron.d/crontask
 
-
-# use custom "start.sh which prepare a container.env file for our crontask"
-COPY ./start.sh /root/start.sh
-
 RUN mkdir /monit
 COPY ./monit/httpd.sh /monit/httpd.sh
-COPY ./monit/alert.sh /monit/alert.sh
+COPY ./monit/mailserver.sh /monit/mailserver.sh
 COPY ./monit/disk-usage.sh /monit/disk-usage.sh
 COPY ./monit/cron.cfg /etc/monit/conf.d/cron.cfg
 COPY ./monit/daemon.cfg /etc/monit/conf.d/daemon.cfg
 COPY ./monit/check-hosts.cfg /etc/monit/conf.d/check-hosts.cfg
 
-# run this `start.sh` (running cron in foreground)
+COPY ./start.sh /root/start.sh
 CMD /root/start.sh

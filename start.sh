@@ -13,7 +13,7 @@ service cron start
 
 # source monit env
 /monit/httpd.sh
-/monit/alert.sh
+/monit/mailserver.sh
 /monit/disk-usage.sh
 
 monit -I
