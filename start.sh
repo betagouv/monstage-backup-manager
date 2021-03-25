@@ -9,11 +9,12 @@ declare -p | grep -E 'CELLAR_ADDON_KEY_ID|CELLAR_ADDON_KEY_SECRET|CELLAR_ADDON_B
 
 echo "SYNC_DIR: $SYNC_DIR"
 mkdir $SYNC_DIR
-service cron start
 
 # source monit env
 /monit/httpd.sh
 /monit/mailserver.sh
 /monit/disk-usage.sh
+
+echo $HOST > /etc/hostname
 
 monit -I
