@@ -18,4 +18,5 @@ mkdir $SYNC_DIR
 
 echo $HOST > /etc/hostname
 
+echo "last build" > /build
 monit -I

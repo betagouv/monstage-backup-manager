@@ -18,5 +18,5 @@ docker run \
   --env MONIT_SMTP_PASSWORD=xxx \
   --env MONIT_ALERTED_EMAIL=xxx \
   --env HOST=xxx \
-  -it monstage/backup:1.0.0
+  -it monstage/backup:1.0.4
 
