@@ -21,8 +21,8 @@ RUN mkdir /monit
 COPY ./monit/httpd.sh /monit/httpd.sh
 COPY ./monit/mailserver.sh /monit/mailserver.sh
 COPY ./monit/disk-usage.sh /monit/disk-usage.sh
+COPY ./monit/mail-format.sh /monit/mail-format.sh
 COPY ./monit/cron.cfg /etc/monit/conf.d/cron.cfg
-COPY ./monit/mail-format.cfg /etc/monit/conf.d/mail-format.cfg
 COPY ./monit/daemon.cfg /etc/monit/conf.d/daemon.cfg
 COPY ./monit/check-hosts.cfg /etc/monit/conf.d/check-hosts.cfg
 

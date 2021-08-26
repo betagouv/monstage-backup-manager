@@ -14,7 +14,9 @@ mkdir $SYNC_DIR
 /monit/httpd.sh
 /monit/mailserver.sh
 /monit/disk-usage.sh
+/monit/mail-format.sh
 
 echo $HOST > /etc/hostname
 
+echo "last build" > /build
 monit -I
